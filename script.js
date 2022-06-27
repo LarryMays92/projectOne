@@ -1,8 +1,15 @@
 // MAKE THE CARDS USING ARRAYS TO GROUP EM at first i made 52 card what a waste of time 
 const SUITS = ['diamonds','hearts','club','spades']
 const VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K","A"]
+const RANK = {"2": 2,"3": 3, "4": 4, "5": 5, "6":6, "7":7, "8":8, "9":9, "10": 10, "J": 11, "Q": 12, "K": 13, "A": 14,}
+const cpuCardSlot = document.querySelector(".cpu-card-slot")
+const userCardSlot = document.querySelector(".user-card-slot")
+const cpuHandElement = document.querySelector(".cpu-hand")
+const userHandElement = document.querySelector(".user-hand")
+const text = document.querySelector(".text")
 
-// not an array switch to curly
+let userHand, cpuHand, duringTurn, stop
+
 
 class Deck {
     constructor(cards = cleanDeck()) {
@@ -51,8 +58,6 @@ class Deck {
 //     console.log(deck);
 // }
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //function to create the cards with suit and value
 class Card {
     constructor(suit, value) {
@@ -74,11 +79,8 @@ getHTML() {
     return cardDiv
     }
 }
-
-
 // function to create the deck each deck has 52 cards
 // loop through the two arrays to get a card and those cards will create the Deck so 
-
 
 function cleanDeck () {
     return SUITS.flatMap(suit => {
@@ -87,18 +89,6 @@ function cleanDeck () {
         })
     })
 }
-
-
-const RANK = {"2": 2,"3": 3, "4": 4, "5": 5, "6":6, "7":7, "8":8, "9":9, "10": 10, "J": 11, "Q": 12, "K": 13, "A": 14,}
-const cpuCardSlot = document.querySelector(".cpu-card-slot")
-const userCardSlot = document.querySelector(".user-card-slot")
-const cpuHandElement = document.querySelector(".cpu-hand")
-const userHandElement = document.querySelector(".user-hand")
-const text = document.querySelector(".text")
-
-
-let userHand, cpuHand, duringTurn, stop
-
 
 document.addEventListener('click', () => {
 if (stop) {
@@ -114,7 +104,7 @@ if (stop) {
 
 })
 
-// define the deck and what it will consists of whether its a players hand or all the cards 7 shuffle the cards with cards not yet used yet 
+// defines the deck and what it will consists of whether its a players hand or all the cards 7 shuffle the cards with cards not yet used yet 
 
 
 ////////////////////////////////////////////////////////////////////////////
